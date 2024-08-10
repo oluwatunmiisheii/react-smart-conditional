@@ -1,0 +1,37 @@
+{
+  "name": "react-conditional-render",
+  "description": "Manage conditional rendering in react js and it's frameworks like a pro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint '**/*.{js,ts,tsx}'",
+    "lint:fix": "npm lint --fix",
+    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
+  },
+  "keywords": [],
+  "author": "<oluwatunmiseadenuga@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17 || ^18 || ^19"
+  },
+  "overrides": {
+    "eslint": "^9.8.0"
+  }
+}
