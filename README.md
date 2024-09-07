@@ -88,33 +88,40 @@ export default DataDisplay;
 
 ## API Reference
 
-### `Show` Component
+### Components
 
-The main wrapper component for conditional rendering.
+1. **`Show`** - Main container for conditional rendering
 
-Props:
+   - Props:
+     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: React.Fragment)
+     - `children: React.ReactNode` - Should contain `If`, `ElseIf`, and `Else` components
 
-- `as`: string | React.ComponentType (optional) - Specifies the wrapper element or component. Defaults to React.Fragment.
+2. **`Show.If`** - Renders children when condition is true
 
-### `Show.If` Component
+   - Props:
+     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: React.Fragment)
+     - `condition: boolean` - Condition to evaluate (required)
+     - `children: React.ReactNode` - Content to render if true
 
-Renders its children when the condition is true.
+3. **`Show.ElseIf`** - Renders when its condition is true and previous were false
 
-Props:
+   - Props:
+     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: React.Fragment)
+     - `condition: boolean` - Condition to evaluate (required)
+     - `children: React.ReactNode` - Content to render if true
 
-- `condition`: boolean - The condition to evaluate.
+4. **`Show.Else`** - Renders when all previous conditions were false
+   - Props:
+     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: React.Fragment)
+     - `children: React.ReactNode` - Content to render
 
-### `Show.ElseIf` Component
+### Usage Example
 
-Renders its children when the condition is true and all previous conditions were false.
+```jsx
+<Show as="div">
+  <Show.If as="section" condition={isLoading}>
 
-Props:
-
-- `condition`: boolean - The condition to evaluate.
-
-### `Show.Else` Component
-
-Renders its children when all previous conditions were false.
+```
 
 ## Contributing
 
