@@ -125,6 +125,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+If you find this project helpful, please consider giving it a star on GitHub! ⭐️
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
@@ -133,4 +135,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Made with ❤️ Wilson Adenuga - [@Adenugawilson](https://x.com/Adenugawilson) - oluwatunmiseadenuga@gmail.com
 
-Project Link: [https://github.com/yourusername/react-conditional-render](https://github.com/yourusername/react-conditional-render)
+Project Link: [https://github.com/oluwatunmiisheii/react-conditional-render](https://github.com/oluwatunmiisheii/react-conditional-render)
