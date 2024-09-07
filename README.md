@@ -115,14 +115,6 @@ export default DataDisplay;
      - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: React.Fragment)
      - `children: React.ReactNode` - Content to render
 
-### Usage Example
-
-```jsx
-<Show as="div">
-  <Show.If as="section" condition={isLoading}>
-
-```
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -139,6 +131,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_twitter) - email@example.com
+Made with ❤️ Wilson Adenuga - [@Adenugawilson](https://x.com/Adenugawilson) - oluwatunmiseadenuga@gmail.com
 
 Project Link: [https://github.com/yourusername/react-conditional-render](https://github.com/yourusername/react-conditional-render)
