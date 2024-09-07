@@ -1,25 +1,26 @@
 {
   "compilerOptions": {
-    "sourceMap" : true,
-    "module": "esnext",
-    "target": "es2018",                              
-    "moduleResolution": "node",
-    "outDir": "./dist",
-    "jsx": "react",            
-    "skipLibCheck": true,
-    "rootDir": "./src",
+    "allowJs": true,
     "declaration": true,
     "declarationMap": true,
-    "noEmit": true,
-    "esModuleInterop": true,             
-    "lib": ["dom", "esnext"],
-    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "lib": ["es5", "es2015", "dom"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true 
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "ESNext"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "examples", "src/*.test.ts"]
+  "include": ["src/index.ts"],
+  "exclude": ["node_modules", "test", "examples", "dist"]
 }

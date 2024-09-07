@@ -2,36 +2,78 @@
   "name": "react-conditional-render",
   "description": "Manage conditional rendering in react js and it's frameworks like a pro",
   "version": "1.0.0",
-  "main": "index.js",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "esmodule": "dist/index.mjs",
+  "umd:main": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.module.js",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
   "scripts": {
     "lint": "eslint '**/*.{js,ts,tsx}'",
     "lint:fix": "npm lint --fix",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
+    "build-only": "rm -rf ./dist/*; microbundle build --entry src/index.ts --name react-conditional-render --tsconfig tsconfig.json",
+    "build": "npm run build-only && size-limit",
+    "test": "jest && eslint \"src/**/*.{ts,tsx}\"",
+    "prepublishOnly": "npm run test && npm run build"
   },
-  "keywords": [],
-  "author": "<oluwatunmiseadenuga@gmail.com>",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "conditional",
+    "render",
+    "react-conditional-render",
+    "react-conditional-rendering"
+  ],
+  "author": "Wilson Adenuga <oluwatunmiseadenuga@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "eslint": "^9.8.0",
+    "@size-limit/preset-small-lib": "^11.1.4",
+    "@types/react": "^18.3.5",
+    "eslint": "^9.10.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react": "^7.35.2",
     "globals": "^15.9.0",
+    "microbundle": "^0.15.1",
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "size-limit": "^11.1.4",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.0.0"
+    "typescript-eslint": "^8.4.0"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17 || ^18 || ^19"
+    "react": "^17.0.0 || ^18.0.0"
   },
-  "overrides": {
-    "eslint": "^9.8.0"
-  }
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "1 KB"
+    },
+    {
+      "path": "dist/index.module.js",
+      "limit": "1 KB"
+    },
+    {
+      "path": "dist/index.umd.js",
+      "limit": "1 KB"
+    },
+    {
+      "path": "dist/index.mjs",
+      "limit": "1 KB"
+    }
+  ]
 }
