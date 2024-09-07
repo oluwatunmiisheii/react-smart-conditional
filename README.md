@@ -99,20 +99,20 @@ export default DataDisplay;
 2. **`Show.If`** - Renders children when condition is true
 
    - Props:
-     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: React.Fragment)
+     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: div)
      - `condition: boolean` - Condition to evaluate (required)
      - `children: React.ReactNode` - Content to render if true
 
 3. **`Show.ElseIf`** - Renders when its condition is true and previous were false
 
    - Props:
-     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: React.Fragment)
+     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: div)
      - `condition: boolean` - Condition to evaluate (required)
      - `children: React.ReactNode` - Content to render if true
 
 4. **`Show.Else`** - Renders when all previous conditions were false
    - Props:
-     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: React.Fragment)
+     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: div)
      - `children: React.ReactNode` - Content to render
 
 ## Contributing
