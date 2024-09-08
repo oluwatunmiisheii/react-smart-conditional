@@ -1,40 +1,50 @@
 import React, { type ReactNode, Children, isValidElement } from 'react';
-import { If, ElseIf, Else } from './conditional-components';
+import { If } from './if';
+import { Else } from './else';
 import { polymorphicForwardRef } from '../types/polymorphic';
 
-const Show = polymorphicForwardRef<'div', JSX.IntrinsicElements['div']>(
-  ({ as: Element = 'div', children, ...props }, ref) => {
-    let When: ReactNode = null;
-    let Otherwise: ReactNode = null;
+type ConditionalComponent = typeof If | typeof Else;
 
-    Children.toArray(children).some((child) => {
-      if (isValidElement(child)) {
-        if (
-          (child.type === If || child.type === ElseIf) &&
-          child.props.condition
-        ) {
-          When = child;
-          return true;
-        } else if (child.type === Else) {
-          Otherwise = child;
-        }
+type ShowProps = {
+  multiple?: boolean;
+};
+
+const Show = polymorphicForwardRef<
+  'div',
+  JSX.IntrinsicElements['div'] & ShowProps
+>(({ as: Element = 'div', children, multiple = false, ...props }, ref) => {
+  const trueConditions: ReactNode[] = [];
+  let Otherwise: ReactNode = null;
+
+  Children.toArray(children).forEach((child) => {
+    if (isValidElement<{ condition?: boolean }>(child)) {
+      const childType = child.type as ConditionalComponent;
+      if (childType === If && child.props.condition) {
+        trueConditions.push(child);
+        if (!multiple) return;
+      } else if (childType === Else && !Otherwise) {
+        Otherwise = child;
       }
-      return false;
-    });
+    } else {
+      console.warn('Invalid child type in Show component');
+    }
+  });
 
-    return (
-      <Element ref={ref} {...props}>
-        {When || Otherwise}
-      </Element>
-    );
-  },
-);
+  return (
+    <Element ref={ref} {...props}>
+      {trueConditions.length > 0
+        ? multiple
+          ? trueConditions
+          : trueConditions[0]
+        : Otherwise}
+    </Element>
+  );
+});
 Show.displayName = 'Show';
 
-const showpNs = Object.assign(Show, {
+const ShowWithComponents = Object.assign(Show, {
   If,
-  ElseIf,
   Else,
 });
-
-export default showpNs;
+export default ShowWithComponents;
+export { ShowWithComponents as Show };

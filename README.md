@@ -1,12 +1,14 @@
 # React Conditional Render
 
-A flexible and reusable React component for conditional rendering.
+A flexible and reusable React component for conditional rendering. small size < 1kb
 
 ## Features
 
-- Conditional rendering with `Show.If` and `Show.Else`
-- Customizable wrapper element using the `as` prop
-- Simple and declarative syntax
+- Conditional rendering of content based on boolean conditions
+- Support for multiple conditions with `If` components
+- Fallback rendering with `Else` component
+- Option to render single or multiple true conditions
+- Polymorphic component API for flexible element rendering
 
 ## Table of Contents
 
@@ -55,7 +57,7 @@ export default DataDisplay;
 
 ### Using React Conditional Render
 
-This example showcases the same component using the `react-conditional-render` library. The `Show` component and its child components (`If`, `ElseIf`, and `Else`) provide a more declarative and readable approach to conditional rendering, especially for complex scenarios.
+This example showcases the same component using the `react-conditional-render` library. The `Show` component and its child components (`If`, and `Else`) provide a more declarative and readable approach to conditional rendering, especially for complex scenarios.
 
 ```jsx
 import React from 'react';
@@ -63,19 +65,13 @@ import Show from 'react-conditional-render';
 
 const DataDisplay = ({ isLoading, error, data }) => {
   return (
-    <Show as="div">
-      <Show.If condition={isLoading}>
-        <p>Loading...</p>
+    <Show as="section">
+      <Show.If condition={isLoading}>Loading...</Show.If>
+      <Show.If condition={error}>Error: {error.message}</Show.If>
+      <Show.If condition={data}>
+        <h1>Data Loaded:</h1>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
       </Show.If>
-      <Show.ElseIf condition={error}>
-        <p>Error: {error.message}</p>
-      </Show.ElseIf>
-      <Show.ElseIf condition={data}>
-        <div>
-          <h1>Data Loaded:</h1>
-          <pre>{JSON.stringify(data, null, 2)}</pre>
-        </div>
-      </Show.ElseIf>
       <Show.Else>
         <p>No data available.</p>
       </Show.Else>
@@ -86,15 +82,28 @@ const DataDisplay = ({ isLoading, error, data }) => {
 export default DataDisplay;
 ```
 
-## API Reference
+### Rendering Multiple True Conditions
 
-### Components
+To render all true conditions, use the `multiple` prop:
+
+```jsx
+<Show multiple>
+  <Show.If condition={condition1}>Content for condition 1</Show.If>
+  <Show.If condition={condition2}>Content for condition 2</Show.If>
+  <Show.Else>Fallback content</Show.Else>
+</Show>
+```
+
+This will render both `condition1` and `condition2` if they are true.
+
+## API
 
 1. **`Show`** - Main container for conditional rendering
 
    - Props:
+     - `multiple`: boolean (default: false) - When true, renders all true conditions. When false, renders only the first true condition.
      - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: React.Fragment)
-     - `children: React.ReactNode` - Should contain `If`, `ElseIf`, and `Else` components
+     - `children: React.ReactNode` - Should contain `If`, `ElseIf`, and `Else` components.
 
 2. **`Show.If`** - Renders children when condition is true
 
@@ -103,17 +112,38 @@ export default DataDisplay;
      - `condition: boolean` - Condition to evaluate (required)
      - `children: React.ReactNode` - Content to render if true
 
-3. **`Show.ElseIf`** - Renders when its condition is true and previous were false
-
-   - Props:
-     - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: div)
-     - `condition: boolean` - Condition to evaluate (required)
-     - `children: React.ReactNode` - Content to render if true
-
-4. **`Show.Else`** - Renders when all previous conditions were false
+3. **`Show.Else`** - Renders when all previous conditions were false
    - Props:
      - `as?: string | React.ComponentType` - Wrapper element/component (optional, default: div)
      - `children: React.ReactNode` - Content to render
+
+## Polymorphic API
+
+The `Show`, `Show.If`, and `Show.Else` components support polymorphic rendering:
+
+```jsx
+<Show as="section" className="container" data-testid="show-container">
+  <Show.If
+    condition={true}
+    as="p"
+    className="content active"
+    onClick={() => console.log('Clicked')}
+  >
+    Paragraph content
+  </Show.If>
+  <Show.If
+    condition={false}
+    as="div"
+    className="content inactive"
+    style={{ display: 'none' }}
+  >
+    Hidden content
+  </Show.If>
+  <Show.Else as="span" className="fallback" aria-label="Fallback content">
+    Span content
+  </Show.Else>
+</Show>
+```
 
 ## Contributing
 

@@ -6,11 +6,3 @@ export const If = polymorphicForwardRef<'div', { condition: boolean }>(
     condition ? <Element ref={ref} {...props} /> : null,
 );
 If.displayName = 'If';
-
-export const ElseIf = If;
-ElseIf.displayName = 'ElseIf';
-
-export const Else = polymorphicForwardRef<'div'>(
-  ({ as: Element = 'div', ...props }, ref) => <Element ref={ref} {...props} />,
-);
-Else.displayName = 'Else';

@@ -13,7 +13,7 @@ export default [
     languageOptions: {
       parserOptions: {
         sourceType: 'module',
-        emcaVersion: 2021,
+        ecmaVersion: 2021,
         ecmaFeatures: {
           jsx: true,
         },
@@ -29,6 +29,11 @@ export default [
         pragma: 'React',
         version: 'detect',
       },
+    },
+    env: {
+      jest: true,
+      browser: true,
+      node: true,
     },
   },
 ];
