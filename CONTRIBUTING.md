@@ -58,4 +58,4 @@ We use pnpm for package management. Please make sure to use pnpm commands instea
 - To install all dependencies: `pnpm install`
 - To run scripts defined in package.json: `pnpm run <script-name>`
 
-Thank you for contributing to react-conditional-render
+Thank you for contributing to react-smart-conditional

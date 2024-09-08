@@ -1,5 +1,5 @@
 {
-  "name": "react-conditional-render",
+  "name": "react-smart-conditional",
   "description": "Manage conditional rendering in react js and it's frameworks like a pro",
   "version": "1.0.0",
   "source": "src/index.ts",
@@ -20,12 +20,12 @@
   "sideEffects": false,
   "scripts": {
     "lint": "eslint '**/*.{js,ts,tsx}'",
-    "lint:fix": "npm lint --fix",
+    "lint:fix": "pnpm lint --fix",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
-    "build-only": "rm -rf ./dist/*; microbundle build --entry src/index.ts --name react-conditional-render --tsconfig tsconfig.json",
-    "build": "npm run build-only && size-limit",
+    "build-only": "rm -rf ./dist/*; microbundle build --entry src/index.ts --name react-smart-conditional --tsconfig tsconfig.json",
+    "build": "pnpm run build-only && size-limit",
     "test": "jest",
-    "prepublishOnly": "npm run test && npm run build",
+    "prepublishOnly": "pnpm run test && pnpm run build",
     "prepare": "husky"
   },
   "files": [
@@ -35,11 +35,19 @@
     "react",
     "conditional",
     "render",
-    "react-conditional-render",
-    "react-conditional-rendering"
+    "react-smart-conditional",
+    "react-conditional-render"
   ],
   "author": "Wilson Adenuga <oluwatunmiseadenuga@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oluwatunmiisheii/react-smart-conditional.git"
+  },
+  "homepage": "https://github.com/oluwatunmiisheii/react-smart-conditional#readme",
+  "bugs": {
+    "url": "https://github.com/oluwatunmiisheii/react-smart-conditional/issues"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "^19.4.1",

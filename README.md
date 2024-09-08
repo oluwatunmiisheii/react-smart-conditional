@@ -21,7 +21,7 @@ A flexible and reusable React component for conditional rendering. small size < 
 ## Installation
 
 ```bash
-npm install react-conditional-render
+pnpm install react-smart-conditional
 ```
 
 ## Usage
@@ -57,11 +57,11 @@ export default DataDisplay;
 
 ### Using React Conditional Render
 
-This example showcases the same component using the `react-conditional-render` library. The `Show` component and its child components (`If`, and `Else`) provide a more declarative and readable approach to conditional rendering, especially for complex scenarios.
+This example showcases the same component using the `react-smart-conditional` library. The `Show` component and its child components (`If`, and `Else`) provide a more declarative and readable approach to conditional rendering, especially for complex scenarios.
 
 ```jsx
 import React from 'react';
-import Show from 'react-conditional-render';
+import Show from 'react-smart-conditional';
 
 const DataDisplay = ({ isLoading, error, data }) => {
   return (
@@ -165,4 +165,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Made with ❤️ Wilson Adenuga - [@Adenugawilson](https://x.com/Adenugawilson) - oluwatunmiseadenuga@gmail.com
 
-Project Link: [https://github.com/oluwatunmiisheii/react-conditional-render](https://github.com/oluwatunmiisheii/react-conditional-render)
+Project Link: [https://github.com/oluwatunmiisheii/react-smart-render](https://github.com/oluwatunmiisheii/react-smart-render)
