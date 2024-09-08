@@ -1,7 +1,6 @@
 import React from 'react';
 import { If } from '../../src/components/if';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 describe('If', () => {
   it.each([

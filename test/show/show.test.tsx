@@ -1,7 +1,6 @@
 import React from 'react';
 import { Show } from '../../src/components/show';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 describe('Show component', () => {
   it('renders first true If child when multiple is false (default)', () => {

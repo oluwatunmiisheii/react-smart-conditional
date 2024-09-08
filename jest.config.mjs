@@ -1,6 +1,4 @@
-const path = require('path');
-
-module.exports = {
+export default {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   roots: ['<rootDir>/test'],
@@ -15,5 +13,5 @@ module.exports = {
     'setupTests.ts',
     'index.tsx',
   ],
-  setupFilesAfterEnv: [path.resolve(__dirname, './setupTests.ts')],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
 };
