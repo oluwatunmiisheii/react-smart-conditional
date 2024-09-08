@@ -18,8 +18,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-      "source.formatDocument": "always",
-      "source.fixAll.eslint": "always"
+    "source.formatDocument": "always",
+    "source.fixAll.eslint": "always"
   },
   "editor.formatOnType": true
 }
