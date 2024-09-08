@@ -1,11 +1,21 @@
-import globals from 'globals';
+// import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
-  { languageOptions: { globals: globals.browser } },
+  {
+    languageOptions: {
+      globals: {
+        React: true,
+        ReactDOM: true,
+        jest: true,
+        browser: true,
+        node: true,
+      },
+    },
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
@@ -29,11 +39,6 @@ export default [
         pragma: 'React',
         version: 'detect',
       },
-    },
-    env: {
-      jest: true,
-      browser: true,
-      node: true,
     },
   },
 ];
