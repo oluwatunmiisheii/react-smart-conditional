@@ -1,6 +1,6 @@
 # React Conditional Render
 
-A flexible and reusable React component for conditional rendering. small size < 1kb
+A flexible and reusable React component for conditional rendering.
 
 ## Features
 
@@ -165,4 +165,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Made with ❤️ Wilson Adenuga - [@Adenugawilson](https://x.com/Adenugawilson) - oluwatunmiseadenuga@gmail.com
 
-Project Link: [https://github.com/oluwatunmiisheii/react-smart-render](https://github.com/oluwatunmiisheii/react-smart-render)
+Project Link: [https://github.com/oluwatunmiisheii/react-smart-conditional](https://github.com/oluwatunmiisheii/react-smart-conditional)
