@@ -61,7 +61,7 @@ This example showcases the same component using the `react-smart-conditional` li
 
 ```jsx
 import React from 'react';
-import Show from 'react-smart-conditional';
+import { Show } from 'react-smart-conditional';
 
 const DataDisplay = ({ isLoading, error, data }) => {
   return (
