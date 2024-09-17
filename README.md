@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/react-smart-consitional?logo=npm)](https://www.npmjs.com/package/react-smart-conditional)
+[![npm](https://img.shields.io/npm/v/react-smart-conditional?logo=npm)](https://www.npmjs.com/package/react-smart-conditional)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-smart-conditional?label=bundle%20size&logo=webpack)](https://bundlephobia.com/result?p=react-smart-conditional)
 [![License](https://img.shields.io/github/license/oluwatunmiisheii/react-smart-conditional?logo=github&logoColor=959DA5&labelColor=2D3339)](https://github.com/oluwatunmiisheii/react-smart-conditional/blob/main/LICENSE)
 [![Contact](https://img.shields.io/badge/contact-@__Adenugawilson-blue.svg?style=flat&logo=twitter)](https://x.com/Adenugawilson)
