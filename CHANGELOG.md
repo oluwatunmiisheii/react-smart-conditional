@@ -2,6 +2,12 @@
 
 All notable changes to the react-smart-conditional package will be documented in this file.
 
+## [1.0.4] - 2025-03-05
+
+### Added
+
+- Added support for React 19.
+
 ## [1.0.3] - 2025-03-05
 
 ### Fixed
