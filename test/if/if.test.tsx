@@ -1,4 +1,5 @@
 import React from 'react';
+import '@testing-library/jest-dom';
 import { If } from '../../src/components/if';
 import { render, screen } from '@testing-library/react';
 
@@ -36,5 +37,32 @@ describe('If', () => {
       </If>,
     );
     expect(ref.current).toBeInTheDocument();
+  });
+
+  it('should pass additional props', () => {
+    const { container } = render(
+      <If condition={true} className="test" id="test">
+        Hello
+      </If>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should not pass ref and props when custom component is a Fragment', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { container } = render(
+      <If
+        condition={true}
+        as={React.Fragment}
+        ref={ref}
+        className="test"
+        id="test"
+      >
+        Hello
+      </If>,
+    );
+    expect(ref.current).toBeNull();
+    expect(container).toMatchSnapshot();
   });
 });

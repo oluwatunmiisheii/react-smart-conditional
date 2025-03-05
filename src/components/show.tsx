@@ -2,6 +2,7 @@ import React, { type ReactNode, Children, isValidElement } from 'react';
 import { If } from './if';
 import { Else } from './else';
 import { polymorphicForwardRef } from '../types/polymorphic';
+import { isFragment } from '../utils/is-fragment';
 
 type ConditionalComponent = typeof If | typeof Else;
 
@@ -30,13 +31,18 @@ const Show = polymorphicForwardRef<
     }
   });
 
-  return (
+  const content =
+    trueConditions.length > 0
+      ? multiple
+        ? trueConditions
+        : trueConditions[0]
+      : Otherwise;
+
+  return isFragment(Element) ? (
+    content
+  ) : (
     <Element ref={ref} {...props}>
-      {trueConditions.length > 0
-        ? multiple
-          ? trueConditions
-          : trueConditions[0]
-        : Otherwise}
+      {content}
     </Element>
   );
 });

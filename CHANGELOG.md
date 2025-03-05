@@ -2,11 +2,17 @@
 
 All notable changes to the react-smart-conditional package will be documented in this file.
 
+## [1.0.3] - 2025-03-05
+
+### Fixed
+
+- Excluded `ref` and unsupported props when `as` is a `React.Fragment` to prevent React warnings and errors.
+
 ## [1.0.1] - 2024-09-11
 
 ### Changes
 
-- Updated github link in README.md
+- Updated GitHub link in README.md
 
 ## [1.0.0] - 2024-09-07
 

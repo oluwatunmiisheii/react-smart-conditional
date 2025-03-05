@@ -1,11 +1,12 @@
 import React from 'react';
 import { Show } from '../../src/components/show';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('Show component', () => {
   it('renders first true If child when multiple is false (default)', () => {
     render(
-      <Show>
+      <Show as="div">
         <Show.If condition={true}>If content 1</Show.If>
         <Show.If condition={true}>If content 2</Show.If>
         <Show.Else>Else content</Show.Else>
@@ -126,5 +127,17 @@ describe('Show component', () => {
         expect(ref.current).toBe(button);
       },
     );
+
+    it('does not pass ref and props when as is a Fragment', () => {
+      const ref = React.createRef<HTMLDivElement>();
+
+      const { container } = render(
+        <Show as={React.Fragment} ref={ref}>
+          <Show.If condition={true}>If content</Show.If>
+        </Show>,
+      );
+      expect(ref.current).toBeNull();
+      expect(container).toMatchSnapshot();
+    });
   });
 });

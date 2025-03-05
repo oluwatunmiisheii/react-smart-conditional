@@ -20,4 +20,25 @@ describe('Else', () => {
     render(<Else ref={ref}>Hello</Else>);
     expect(ref.current).toBeInTheDocument();
   });
+
+  it('should pass additional props', () => {
+    const { container } = render(
+      <Else className="test" id="test">
+        Hello
+      </Else>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should not pass ref and props when custom component is a Fragment', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { container } = render(
+      <Else as={React.Fragment} ref={ref}>
+        Hello
+      </Else>,
+    );
+    expect(ref.current).toBeNull();
+    expect(container).toMatchSnapshot();
+  });
 });

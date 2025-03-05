@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`If should not pass ref and props when custom component is a Fragment 1`] = `
+<div>
+  Hello
+</div>
+`;
+
+exports[`If should pass additional props 1`] = `
+<div>
+  <div
+    class="test"
+    id="test"
+  >
+    Hello
+  </div>
+</div>
+`;

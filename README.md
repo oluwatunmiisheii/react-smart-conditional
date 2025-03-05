@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/github/license/oluwatunmiisheii/react-smart-conditional?logo=github&logoColor=959DA5&labelColor=2D3339)](https://github.com/oluwatunmiisheii/react-smart-conditional/blob/main/LICENSE)
 [![Contact](https://img.shields.io/badge/contact-@__Adenugawilson-blue.svg?style=flat&logo=twitter)](https://x.com/Adenugawilson)
 
-# React Conditional Render
+# React Smart Conditional
 
 A flexible and reusable React component for conditional rendering.
 
